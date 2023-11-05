@@ -2,8 +2,8 @@
     "name": "PWA0",
     "short_name" : "PWA0",
     "start_url": "https://aadityarlobo.github.io/pwa/",
-    "background_color": "#FF0000 ",
-    "theme_color": "#FFFFFF",
+    "background_color": "#2d3870",
+    "theme_color": "#34ebb1",
     "display": "standalone",
     "icons": [{
         "src":"images/logo192.png",

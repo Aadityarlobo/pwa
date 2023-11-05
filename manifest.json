@@ -1,7 +1,7 @@
 {
     "name": "PWA0",
     "short_name" : "PWA0",
-    "start_url": "https://meek-khapse-43ba17.netlify.app/",
+    "start_url": "https://aadiechoes.netlify.app/",
     "background_color": "#2d3870",
     "theme_color": "#34ebb1",
     "display": "standalone",

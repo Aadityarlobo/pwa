@@ -11,17 +11,70 @@
     </head>
     <body>
         <p>Hi!</p>
-        <h1>Video Player</h1>
-        <div id="video-container">
-            <video id="video-player" controls>
-                <source src="Aadi.mp4" type="video/mp4">
-            </video>
-        </div>
-        <button id="like-button">Like</button>
-        <div id="timer">Next video in: 24:00:00</div>
+        <video controls>
+            <source src="Aadi.mp4" type="video/mp4">
+        </video>
+        <p id="countdown"></p>
+    
+        <script>
+            const video = document.getElementById('video');
+            const countdown = document.getElementById('countdown');
+    
+            // Function to display the video for 15 seconds
+            function playVideoFor15Seconds() {
+                video.style.display = 'block';
+                video.play();
+    
+                // Hide the video after 15 seconds
+                setTimeout(function () {
+                    video.style.display = 'none';
+                    startCountdown();
+                }, 15000); // 15,000 milliseconds = 15 seconds
+            }
+    
+            // Function to start the 24-hour countdown
+            function startCountdown() {
+                let timeRemaining = 24 * 60 * 60; // 24 hours in seconds
+    
+                function updateCountdown() {
+                    const hours = Math.floor(timeRemaining / 3600);
+                    const minutes = Math.floor((timeRemaining % 3600) / 60);
+                    const seconds = timeRemaining % 60;
+    
+                    countdown.textContent = `Next video in: ${hours}h ${minutes}m ${seconds}s`;
+    
+                    if (timeRemaining <= 0) {
+                        countdown.textContent = 'Video ready to play!';
+                        playVideoFor15Seconds();
+                    } else {
+                        timeRemaining--;
+                        setTimeout(updateCountdown, 1000); // Update countdown every second
+                    }
+                }
+    
+                updateCountdown();
+            }
+    
+            // Start the program
+            startCountdown();
+        </script>
 
         <script src="src/index.js"></script>
 
+        <div>
+            <button class="like-button" id="likeButton">Like</button>
+        </div>
+    </div>
+
+    <script>
+        const likeButton = document.getElementById('likeButton');
+        let likes = 0;
+
+        likeButton.addEventListener('click', () => {
+            likes++;
+            likeButton.textContent = `Like (${likes})`;
+        });
+    </script>
 
         <script>
             
@@ -30,8 +83,8 @@ const videos = ["Aadi.mp4", "smile.mp4"];
 let currentIndex = 0;
 
 // Like button click handler
-const likeButton = document.getElementById("like-button");
-likeButton.addEventListener("click", () => {
+const likeButton2 = document.getElementById("like-button");
+likeButton2.addEventListener("click", () => {
     // Handle the like action here, e.g., increment a like count
     // You can also save this information on the server
     alert("Video Liked!");
@@ -51,5 +104,6 @@ function startVideoRotation() {
 startVideoRotation();
 
         </script>
+
     </body>
 </html>

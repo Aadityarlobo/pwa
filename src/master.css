@@ -1,3 +1,29 @@
 body {
     background: #eeeeee;
 }
+
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+#video-container {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+#like-button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#timer {
+    margin-top: 10px;
+}
